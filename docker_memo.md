@@ -33,3 +33,8 @@ docker container run -it {image id}
 ## 
 FROM 
 RUN {command, better to use -y option if you want to install something; always answer yes}
+COPY
+CMD <- Set default command, it runs only once
+
+### unix commands
+mkfile xxxm {filename} : Make file with xxx[MB]
