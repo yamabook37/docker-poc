@@ -163,5 +163,10 @@ psql -U {User}
 
 docker compose logs
 
+4. Rebuild and confirmation
+docker compose up --build
+curl 'http://localhost:8080/api/hello?lang=ja'
+  Should be returned "こんにちは"
+
 # Unix commands
 mkfile xxxm {filename} : Make file with xxx[MB]

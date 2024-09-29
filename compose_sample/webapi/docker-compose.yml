@@ -6,6 +6,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8081
+    depends_on:
+      - db
+      # api depends on this db, db should run firstly
     entrypoint: "java -jar /api/api.jar"
   db:
     image: postgres:17
