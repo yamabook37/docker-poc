@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8081
+    entrypoint: "java -jar /api/api.jar"
+  db:
+    image: postgres:17
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=testpassword
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=appdb
+    volumes:
+      - db-storage:/var/lib/postgresql/data
+      - ./db/initdb:/docker-entrypoint-initdb.d
+
+volumes:
+  db-storage:
