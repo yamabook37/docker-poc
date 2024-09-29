@@ -140,5 +140,28 @@ curl http://my-nginx-1
 curl http://my-nginx-2
   could not resolve host
 
-### unix commands
+# Docker compose
+## Confirmation
+1. Create sample app
+Need to set <finalName>api</finalName> in pom.xml
+Ref: https://qiita.com/takuch/items/e5ab6e51b2be0743abc8#spring-boot%E3%81%AEdockerfile%E3%82%92%E4%BD%9C%E6%88%90
+2. Put Dockerfile under the app dir
+cd {path}/compose_sample/webapi/api
+docker image build -t api-img .
+docker container run -p 8080:8080 --rm api-img
+3. Put docker-compose.yml under the /webapp, need to involve all cantainer apps
+docker compose up
+
+docker compose up db
+docker compose exec db bash
+psql -U {User}
+\l
+  confirm there is appdb
+\c appdb
+\dt
+  confirm there is greetings table
+
+docker compose logs
+
+# Unix commands
 mkfile xxxm {filename} : Make file with xxx[MB]
