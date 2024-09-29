@@ -98,6 +98,7 @@ docker network inspect bridge
   no change
 docker network inspect my-net
   confirm new container is on my-net
+
 ![alt text](image.png)
 
 ### Confirmation 
@@ -113,6 +114,7 @@ docker container run -d --name my-nginx-1 nginx
 docker container run -d --name my-nginx-2 --network my-net nginx
 docker network inspect bridge
 docker network inspect my-net
+
 ![alt text](image-1.png)
 
 docker container exec -it my-ubuntu-1 bash
@@ -167,6 +169,8 @@ docker compose logs
 docker compose up --build
 curl 'http://localhost:8080/api/hello?lang=ja'
   Should be returned "こんにちは"
+
+![alt text](image-2.png)
 
 # Unix commands
 mkfile xxxm {filename} : Make file with xxx[MB]
